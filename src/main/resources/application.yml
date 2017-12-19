@@ -1,0 +1,30 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: configServer
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: file:///E://config-repo
+#        git:
+#          uri: file:///D://data/vj/config
+  profiles:
+    active: native
+
+management:
+  security.enabled: false
+#  context-path: /management
+
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    registry-fetch-interval-seconds: 10
+    serviceUrl:
+      defaultZone: http://aaa:bbb@10.60.50.25:8761/eureka/
+      
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 5000    
+
